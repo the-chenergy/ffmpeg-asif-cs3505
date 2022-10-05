@@ -630,6 +630,7 @@ enum AVCodecID {
     AV_CODEC_ID_COMFORT_NOISE,
     AV_CODEC_ID_TAK,
     AV_CODEC_ID_METASOUND,
+    AV_CODEC_ID_ASIF, /* Our codec ID tag is now bound to some integer */
     AV_CODEC_ID_PAF_AUDIO,
     AV_CODEC_ID_ON2AVC,
     AV_CODEC_ID_DSS_SP,

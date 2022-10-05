@@ -94,8 +94,6 @@ static void flac_set_bps(FLACContext *s)
 
 static av_cold int flac_decode_init(AVCodecContext *avctx)
 {
-    printf("------------ flac_decode_init() ------------\n");
-
     enum FLACExtradataFormat format;
     uint8_t *streaminfo;
     int ret;
@@ -560,8 +558,6 @@ static int decode_frame(FLACContext *s)
 static int flac_decode_frame(AVCodecContext *avctx, void *data,
                              int *got_frame_ptr, AVPacket *avpkt)
 {
-    printf("------------ flac_decode_frame() ------------\n");
-
     AVFrame *frame     = data;
     ThreadFrame tframe = { .f = data };
     const uint8_t *buf = avpkt->data;
@@ -658,8 +654,6 @@ static int init_thread_copy(AVCodecContext *avctx)
 
 static av_cold int flac_decode_close(AVCodecContext *avctx)
 {
-    printf("------------ flac_decode_frame() ------------\n");
-
     FLACContext *s = avctx->priv_data;
 
     av_freep(&s->decoded_buffer);
@@ -679,9 +673,9 @@ static const AVClass flac_decoder_class = {
     LIBAVUTIL_VERSION_INT,
 };
 
-AVCodec ff_flac_decoder = {
-    .name           = "flac",
-    .long_name      = NULL_IF_CONFIG_SMALL("FLAC (Free Lossless Audio Codec)"),
+AVCodec ff_asif_decoder = {
+    .name           = "asif",
+    .long_name      = NULL_IF_CONFIG_SMALL("ASIF audio file (CS 3505 Spring 20202)"),
     .type           = AVMEDIA_TYPE_AUDIO,
     .id             = AV_CODEC_ID_FLAC,
     .priv_data_size = sizeof(FLACContext),

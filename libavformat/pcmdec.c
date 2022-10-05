@@ -48,6 +48,8 @@ static int pcm_read_header(AVFormatContext *s)
     st->codecpar->sample_rate = s1->sample_rate;
     st->codecpar->channels    = s1->channels;
 
+    printf("pcm_read_header:hahahahahahahahahahahaha   %d\n\n\n", st->codecpar->sample_rate);
+
     av_opt_get(s->pb, "mime_type", AV_OPT_SEARCH_CHILDREN, &mime_type);
     if (mime_type && s->iformat->mime_type) {
         int rate = 0, channels = 0, little_endian = 0;

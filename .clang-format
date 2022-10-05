@@ -1,0 +1,16 @@
+BasedOnStyle: LLVM
+Language: Cpp
+
+ColumnLimit: 96
+
+AllowShortFunctionsOnASingleLine: None
+BreakBeforeBraces: Allman
+DerivePointerAlignment: false
+IndentCaseLabels: true
+IndentWidth: 2
+KeepEmptyLinesAtTheStartOfBlocks: false
+NamespaceIndentation: All
+PointerAlignment: Left
+TabWidth: 2
+UseTab: Never
+

@@ -406,7 +406,7 @@ static int decode_simple_internal(AVCodecContext *avctx, AVFrame *frame)
     // copy to ensure we do not change pkt
     int got_frame, actual_got_frame;
     int ret;
-
+    
     if (!pkt->data && !avci->draining) {
         av_packet_unref(pkt);
         ret = ff_decode_get_packet(avctx, pkt);
@@ -625,7 +625,7 @@ static int decode_simple_receive_frame(AVCodecContext *avctx, AVFrame *frame)
     int ret;
 
     while (!frame->buf[0]) {
-        ret = decode_simple_internal(avctx, frame);
+       ret = decode_simple_internal(avctx, frame);
         if (ret < 0)
             return ret;
     }
@@ -1508,7 +1508,6 @@ static int update_frame_pool(AVCodecContext *avctx, AVFrame *frame)
 {
     FramePool *pool = avctx->internal->pool;
     int i, ret;
-
     switch (avctx->codec_type) {
     case AVMEDIA_TYPE_VIDEO: {
         uint8_t *data[4];
@@ -1708,7 +1707,6 @@ int avcodec_default_get_buffer2(AVCodecContext *avctx, AVFrame *frame, int flags
         frame->height = avctx->coded_height;
         return ret;
     }
-
     if ((ret = update_frame_pool(avctx, frame)) < 0)
         return ret;
 

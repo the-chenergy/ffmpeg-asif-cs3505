@@ -128,7 +128,7 @@ static void read_xing_toc(AVFormatContext *s, int64_t filesize, int64_t duration
     int i;
     MP3DecContext *mp3 = s->priv_data;
     int fast_seek = s->flags & AVFMT_FLAG_FAST_SEEK;
-    int fill_index = (mp3->usetoc || fast_seek) && duration > 0;
+    int fill_index = (mp3->usetoc|| fast_seek) && duration > 0;
 
     if (!filesize &&
         !(filesize = avio_size(s->pb))) {
@@ -455,6 +455,8 @@ static int mp3_read_packet(AVFormatContext *s, AVPacket *pkt)
     pkt->flags &= ~AV_PKT_FLAG_CORRUPT;
     pkt->stream_index = 0;
 
+
+
     return ret;
 }
 
@@ -584,6 +586,11 @@ static int mp3_seek(AVFormatContext *s, int stream_index, int64_t timestamp,
     }
 
     ff_update_cur_dts(s, st, ie->timestamp);
+
+
+    printf("%d\n", mp3->start_pad);
+    printf("%d\n", mp3->end_pad);
+    printf("%d\n", mp3->usetoc);
     return 0;
 }
 

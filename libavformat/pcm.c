@@ -30,7 +30,7 @@ int ff_pcm_read_packet(AVFormatContext *s, AVPacket *pkt)
 {
     AVCodecParameters *par = s->streams[0]->codecpar;
     int ret, size;
-
+    printf("\n\n\nff_pcm_read_packet:hahaha\n\n");
     if (par->block_align <= 0)
         return AVERROR(EINVAL);
 
@@ -55,6 +55,7 @@ int ff_pcm_read_seek(AVFormatContext *s,
     AVStream *st;
     int block_align, byte_rate;
     int64_t pos, ret;
+    printf("\n\n\nff_pcm_read_seek :hahaha\n\n");
 
     st = s->streams[0];
 
